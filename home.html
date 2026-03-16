@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Issue Tracker</title>
+
+    <!-- Daisy + Tailwind -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/daisyui@5"
+      rel="stylesheet"
+      type="text/css" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=Geist:wght@100..900&family=Hind+Siliguri:wght@300;400;500;600;700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Manrope:wght@200..800&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Outfit:wght@100..900&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100..900;1,100..900&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet" />
+
+    <!-- font awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+      integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer" />
+  </head>
+  <body class="bg-gray-100">
+    <!-- Navbar -->
+    <section>
+      <div class="navbar bg-base-100 shadow-sm flex justify-between px-14 py-4">
+        <div class="flex gap-1 items-center">
+          <img class="w-10" src="assets/github-logo.png" alt />
+          <a class="btn btn-ghost text-xl">GitHub Issues Tracker</a>
+        </div>
+        <div class="flex gap-2">
+          <input
+            type="text"
+            placeholder="Search"
+            class="input input-bordered w-24 md:w-auto" />
+          <button class="btn btn-primary">
+            <i class="fa-solid fa-plus"></i> New issue
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!--Button section  -->
+    <main class="w-10/12 mx-auto mt-10">
+      <section>
+        <div class="flex justify-start gap-2 p-4 rounded-lg bg-white shadow-md">
+          <button onclick="loadAllIssues()" id="all-btn" class="btn px-2 border-gray-500 text-gray-600 active">All</button>
+          <button onclick="loadOpenIssues()" class="btn px-2 border-gray-500 text-gray-600">Open</button>
+          <button onclick="loadCloseIssues()" class="btn px-2 border-gray-500 text-gray-600">Closed</button>
+        </div>
+      </section>
+
+      <!-- Issues section -->
+      <section class="mt-8">
+        <div class="flex justify-between bg-white rounded-lg p-4">
+          <head>
+            <div>
+              <div class="flex gap-2">
+                <div
+                  class="flex flex-col justify-center bg-violet-200 rounded-full w-12 p-2">
+                  <img src="assets/Aperture.png" alt />
+                </div>
+                <div>
+                  <h1 class="font-bold"><span>50</span> Issues</h1>
+                  <pc class="text-gray-500">Track and manage your project
+                    issues</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="flex gap-3">
+              <div class="flex gap-2 items-center">
+                <div class="bg-green-700 p-2 rounded-full w-1 h-1"></div>
+                <h1 class="font-semibold">Open</h1>
+              </div>
+              <div class="flex gap-2 items-center">
+                <div class="bg-violet-700 p-2 rounded-full w-1 h-1"></div>
+                <h1 class="font-semibold">Closed</h1>
+              </div>
+            </div>
+          </head>
+        </div>
+      </section>
+
+      <!-- Card section -->
+      <section id="card-section" class="bg-gray-200 p-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+        <!-- Cards -->
+      </section>
+    </main>
+  </body>
+
+  <link rel="stylesheet" href="style/style.css" />
+  <script src="js/home.js"></script>
+</html>
+<!-- ${object.labels[1]?`<i class="fa-solid fa-helicopter-symbol"></i>${object.labels[1].toUpperCase()}`: ""} -->
