@@ -51,9 +51,9 @@
     <main class="w-10/12 mx-auto mt-10">
       <section>
         <div class="flex justify-start gap-2 p-4 rounded-lg bg-white shadow-md">
-          <button onclick="loadAllIssues()" id="all-btn" class="btn px-2 border-gray-500 text-gray-600 active">All</button>
-          <button onclick="loadOpenIssues()" class="btn px-2 border-gray-500 text-gray-600">Open</button>
-          <button onclick="loadCloseIssues()" class="btn px-2 border-gray-500 text-gray-600">Closed</button>
+          <button id="all-btn" onclick="loadAllIssues(); clickedBtn('all')" class="btn px-2 border-gray-500 text-gray-600">All</button>
+          <button id="open-btn" onclick="loadOpenIssues(); clickedBtn('open')" class="btn px-2 border-gray-500 text-gray-600">Open</button>
+          <button id="close-btn" onclick="loadCloseIssues(); clickedBtn('close')" class="btn px-2 border-gray-500 text-gray-600">Closed</button>
         </div>
       </section>
 
@@ -96,7 +96,6 @@
     </main>
   </body>
 
-  <link rel="stylesheet" href="style/style.css" />
   <script src="js/home.js"></script>
+  <link rel="stylesheet" href="style/style.css" />
 </html>
-<!-- ${object.labels[1]?`<i class="fa-solid fa-helicopter-symbol"></i>${object.labels[1].toUpperCase()}`: ""} -->
