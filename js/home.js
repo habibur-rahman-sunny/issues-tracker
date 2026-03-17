@@ -3,7 +3,8 @@ const tabInactive = ["bg-navy", "border-navy"];
 const tabActive = ["bg-black", "border-slate-200", "text-white"];
 const currentTab = "all";
 const countIssues = document.getElementById("count-issues");
-const card = document.querySelectorAll("card-class")
+const input = document.getElementById("search-bar");
+const loadSpinner = document.getElementById("load-spinner")
 
 
 
@@ -23,8 +24,20 @@ const clickedBtn = (tab) => {
 }
 clickedBtn(currentTab)
 
+// loading spinner
+// loading spinner
+const spinner = (state) => {
+  if(state == true){
+    cardSection.classList.add("hidden");
+    loadSpinner.classList.remove("hidden");
+  }
+  else{
+    loadSpinner.classList.add("hidden");
+    cardSection.classList.remove("hidden");
+  }
+}
 
-// Card count
+// Count issues
 const countCard = () => {
   const totalCard = cardSection.children.length
   countIssues.innerText = totalCard;
@@ -32,6 +45,7 @@ const countCard = () => {
 
 //initially load all card data when land on the landing page
 const initiallyLoadAlIssues = async () => {
+   spinner(true);
    const url = "https://phi-lab-server.vercel.app/api/v1/lab/issues"
    const res = await fetch(url)
    const jsObject = await res.json()
@@ -90,11 +104,13 @@ const displayAllIssues = (objects) => {
         `;
         cardSection.appendChild(div)
     });
+    spinner(false);
 }
 
 
 // load all card data when all button is clicked
 const loadAllIssues = async () => {
+    spinner(true);
     const url = "https://phi-lab-server.vercel.app/api/v1/lab/issues"
     const res = await fetch(url)
     const jsObject = await res.json()
@@ -104,6 +120,7 @@ const loadAllIssues = async () => {
 
 // load open card data when open button is clicked
 const loadOpenIssues = async () => {
+    spinner(true);
     const url = "https://phi-lab-server.vercel.app/api/v1/lab/issues"
     const res = await fetch(url)
     const jsObject = await res.json()
@@ -119,6 +136,7 @@ const displayOpenIssues = (objects) => {
 
 // load open card data when open button is clicked
 const loadCloseIssues = async () => {
+    spinner(true);
     const url = "https://phi-lab-server.vercel.app/api/v1/lab/issues"
     const res = await fetch(url)
     const jsObject = await res.json()
@@ -199,4 +217,18 @@ const displayModal = (object) =>{
   `;
   modalSection.appendChild(div);
 }
+
+// Search functionality
+// input.addEventListener("input", async (e) => {
+//   let inputValue = input.value
+//   const url = `https://phi-lab-server.vercel.app/api/v1/lab/issues/search?q=${inputValue}`  
+//   const res = await fetch(url);
+//   const jsObject = await res.json();
+//   console.log(jsObject);
+// })
+
+
+
+
+
 
