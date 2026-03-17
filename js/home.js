@@ -2,6 +2,7 @@ const cardSection = document.getElementById("card-section");
 const tabInactive = ["bg-navy", "border-navy"];
 const tabActive = ["bg-black", "border-slate-200", "text-white"];
 const currentTab = "all";
+const modalSection = document.getElementById("my_modal_5")
 const countIssues = document.getElementById("count-issues");
 const input = document.getElementById("search-bar");
 const loadSpinner = document.getElementById("load-spinner")
@@ -24,7 +25,6 @@ const clickedBtn = (tab) => {
 }
 clickedBtn(currentTab)
 
-// loading spinner
 // loading spinner
 const spinner = (state) => {
   if(state == true){
@@ -57,7 +57,7 @@ initiallyLoadAlIssues()
 //**initially display all card data when land on the landing page**//
 const displayAllIssues = (objects) => {
 
-    cardSection.innerText = "";
+    cardSection.innerHTML = "";
     objects.forEach(object => {
         const div = document.createElement("div");
         div.innerHTML = `
@@ -219,16 +219,18 @@ const displayModal = (object) =>{
 }
 
 // Search functionality
-// input.addEventListener("input", async (e) => {
-//   let inputValue = input.value
-//   const url = `https://phi-lab-server.vercel.app/api/v1/lab/issues/search?q=${inputValue}`  
-//   const res = await fetch(url);
-//   const jsObject = await res.json();
-//   console.log(jsObject);
-// })
-
-
-
+input.addEventListener("input", async (e) => {
+  let inputValue = input.value.trim();
+    if(inputValue === ""){
+    loadAllIssues();
+    return;
+  }
+  const url = `https://phi-lab-server.vercel.app/api/v1/lab/issues/search?q=${inputValue}`  
+  const res = await fetch(url);
+  const jsObject = await res.json();
+  // console.log(jsObject.data);
+  displayAllIssues(jsObject.data);
+})
 
 
 
