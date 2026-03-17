@@ -2,7 +2,9 @@ const cardSection = document.getElementById("card-section");
 const tabInactive = ["bg-navy", "border-navy"];
 const tabActive = ["bg-black", "border-slate-200", "text-white"];
 const currentTab = "all";
-const modalSection = document.getElementById("my_modal_5")
+const countIssues = document.getElementById("count-issues");
+const card = document.querySelectorAll("card-class")
+
 
 
 // Button toggling
@@ -22,12 +24,20 @@ const clickedBtn = (tab) => {
 clickedBtn(currentTab)
 
 
+// Card count
+const countCard = () => {
+  const totalCard = cardSection.children.length
+  countIssues.innerText = totalCard;
+}
+
 //initially load all card data when land on the landing page
 const initiallyLoadAlIssues = async () => {
    const url = "https://phi-lab-server.vercel.app/api/v1/lab/issues"
    const res = await fetch(url)
    const jsObject = await res.json()
    displayAllIssues(jsObject.data);
+   countCard();
+
 }
 initiallyLoadAlIssues()
 //**initially display all card data when land on the landing page**//
@@ -38,7 +48,7 @@ const displayAllIssues = (objects) => {
         const div = document.createElement("div");
         div.innerHTML = `
         <div onclick = "loadModal(${object.id})"
-          class="w-full p-6 bg-white rounded-xl shadow-sm h-full flex flex-col border-t-4 ${object.status==="open"?"border-t-green-700":" border-t-violet-800"}">
+          class="card-class w-full p-6 bg-white rounded-xl shadow-sm h-full flex flex-col border-t-4 ${object.status==="open"?"border-t-green-700":" border-t-violet-800"}">
           <div class="flex justify-between items-center mb-4">
             <img src="assets/Open-Status.png" alt class="w-6 h-6">
 
@@ -83,13 +93,13 @@ const displayAllIssues = (objects) => {
 }
 
 
-
 // load all card data when all button is clicked
 const loadAllIssues = async () => {
     const url = "https://phi-lab-server.vercel.app/api/v1/lab/issues"
     const res = await fetch(url)
     const jsObject = await res.json()
     displayAllIssues(jsObject.data);
+    countCard();
 }
 
 // load open card data when open button is clicked
@@ -98,6 +108,7 @@ const loadOpenIssues = async () => {
     const res = await fetch(url)
     const jsObject = await res.json()
     displayOpenIssues(jsObject.data);
+    countCard();
 }
 // Display open card data when open button is clicked
 const displayOpenIssues = (objects) => {
@@ -112,6 +123,7 @@ const loadCloseIssues = async () => {
     const res = await fetch(url)
     const jsObject = await res.json()
     displayCloseIssues(jsObject.data);
+    countCard();
 }
 // Display open card data when open button is clicked
 const displayCloseIssues = (objects) => {
@@ -187,3 +199,4 @@ const displayModal = (object) =>{
   `;
   modalSection.appendChild(div);
 }
+
