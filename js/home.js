@@ -174,7 +174,7 @@ const displayModal = (object) =>{
           ${object.status}
         </span>
         <span>- Opened by <span class="font-semibold text-slate-600">${object.author}</span></span>
-        <span>- ${object.createdAt}</span>
+        <span>- ${object.createdAt.split("T")[0]}</span>
       </div>
     </div>
 
