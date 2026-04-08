@@ -1,10 +1,3 @@
-📘 Issue Tracker
-🔗 Live Demo
-
-👉 View Live Project
-https://habibur-rahman-sunny.github.io/issues-tracker/
-
----
 
 📝 Project Overview
 
@@ -33,16 +26,6 @@ This project includes:
 -CSS3
 
 -JavaScript (ES6+)
-
--Tailwind CSS
-
--DaisyUI
-
--Font Awesome
-
--Google Fonts
-
--External API
 
 
 ---
