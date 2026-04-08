@@ -1,11 +1,7 @@
-1.The difference between var, let, const are --
-var is a declaration keyword which is help for redeclare a value but when a variable will be declare with const keyword then the value is permanently stored in variable and when a variable will be declare with let keyword then the variable will not redeclare in future.
+A responsive Issue Tracker web application built using HTML, Tailwind CSS, and JavaScript.
 
-2. spreed operator expand elements from array,object,etc into individual values.
+This project demonstrates core web development concepts by integrating an external API and dynamically rendering data using async/await. It includes features like  searching, and viewing detailed issue information.
 
-3. The difference between map(), forEach() and filter() are--
-map() method is used  for creating a new array depends on original array and the forEach() method is used for iteration on each array element and the filter() method is used for filtering array,object,etc with a condition
+🌐 Live Demo: https://habibur-rahman-sunny.github.io/issues-tracker/ 
 
-4.Arrow function is a new version of function which can be used for shortened the code.
-
-5.Template literals are strings written using backticks(``) that allow variable and just not a variable but also expression .
+💻 Tech Stack: HTML5, Tailwind CSS, JavaScript
